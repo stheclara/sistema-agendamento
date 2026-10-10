@@ -73,6 +73,104 @@ const horariosDisponiveis = [
   '17:00',
 ]
 
+const disponibilidadePadrao = {
+  'Dra. Helena Martins': {
+    'Segunda-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Quarta-feira': ['08:00', '09:00', '10:00', '13:00', '14:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Sexta-feira': ['08:00', '09:00', '10:00', '11:00'],
+  },
+
+  'Dr. Rafael Almeida': {
+    'Segunda-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Quinta-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Sexta-feira': ['09:00', '10:00', '11:00', '13:00', '14:00'],
+  },
+
+  'Dr. Lucas Ferreira': {
+    'Segunda-feira': ['08:00', '09:00', '10:00', '14:00', '15:00'],
+    'Terça-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Quarta-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Quinta-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Sexta-feira': ['08:00', '09:00', '10:00', '11:00'],
+  },
+
+  'Dra. Marina Costa': {
+    'Segunda-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Sexta-feira': ['13:00', '14:00', '15:00', '16:00'],
+  },
+
+  'Dra. Laura Mendes': {
+    'Segunda-feira': ['09:00', '10:00', '11:00', '13:00', '14:00'],
+    'Terça-feira': ['09:00', '10:00', '11:00', '13:00', '14:00'],
+    'Quarta-feira': ['14:00', '15:00', '16:00', '17:00'],
+    'Quinta-feira': ['09:00', '10:00', '11:00', '13:00', '14:00'],
+    'Sexta-feira': ['09:00', '10:00', '11:00'],
+  },
+
+  'Dr. André Ribeiro': {
+    'Segunda-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Sexta-feira': ['13:00', '14:00', '15:00', '16:00'],
+  },
+
+  'Dra. Camila Nogueira': {
+    'Segunda-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Terça-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Quarta-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Quinta-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Sexta-feira': ['08:00', '09:00', '10:00', '11:00'],
+  },
+
+  'Dra. Beatriz Lima': {
+    'Segunda-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Sexta-feira': ['13:00', '14:00', '15:00'],
+  },
+
+  'Dra. Sofia Carvalho': {
+    'Segunda-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Quarta-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Sexta-feira': ['08:00', '09:00', '10:00', '11:00'],
+  },
+
+  'Dr. Gabriel Rocha': {
+    'Segunda-feira': ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+    'Quarta-feira': ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+    'Quinta-feira': ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+    'Sexta-feira': ['10:00', '11:00', '13:00', '14:00', '15:00'],
+  },
+
+  'Isabela Freitas': {
+    'Segunda-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Quarta-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Quinta-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Sexta-feira': ['09:00', '10:00', '11:00', '14:00'],
+  },
+
+  'Daniel Moreira': {
+    'Segunda-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Sexta-feira': ['13:00', '14:00', '15:00', '16:00'],
+  },
+}
+
 function buscarDisponibilidadesSalvas() {
   try {
     return JSON.parse(
@@ -83,11 +181,18 @@ function buscarDisponibilidadesSalvas() {
   }
 }
 
-function carregarDisponibilidadeInicial() {
-  const disponibilidades =
-    buscarDisponibilidadesSalvas()
+function obterDisponibilidadeProfissional(nomeProfissional) {
+  const disponibilidades = buscarDisponibilidadesSalvas()
 
-  return disponibilidades[profissionais[0].nome] || {}
+  if (Object.prototype.hasOwnProperty.call(disponibilidades, nomeProfissional)) {
+    return disponibilidades[nomeProfissional]
+  }
+
+  return disponibilidadePadrao[nomeProfissional] || {}
+}
+
+function carregarDisponibilidadeInicial() {
+  return obterDisponibilidadeProfissional(profissionais[0].nome)
 }
 
 function HorariosAdmin() {
@@ -99,8 +204,7 @@ function HorariosAdmin() {
   const [horariosSelecionados, setHorariosSelecionados] =
     useState(carregarDisponibilidadeInicial)
 
-  const [mensagem, setMensagem] =
-    useState('')
+  const [mensagem, setMensagem] = useState('')
 
   useEffect(() => {
     const estaAutenticado =
@@ -114,27 +218,17 @@ function HorariosAdmin() {
   }, [navigate])
 
   function carregarDisponibilidade(nomeProfissional) {
-    const disponibilidades =
-      buscarDisponibilidadesSalvas()
-
-    const disponibilidadeProfissional =
-      disponibilidades[nomeProfissional] || {}
-
     setHorariosSelecionados(
-      disponibilidadeProfissional
+      obterDisponibilidadeProfissional(nomeProfissional)
     )
 
     setMensagem('')
   }
 
   function trocarProfissional(nomeProfissional) {
-    setProfissionalSelecionado(
-      nomeProfissional
-    )
+    setProfissionalSelecionado(nomeProfissional)
 
-    carregarDisponibilidade(
-      nomeProfissional
-    )
+    carregarDisponibilidade(nomeProfissional)
   }
 
   function alternarHorario(dia, horario) {
@@ -236,11 +330,8 @@ function HorariosAdmin() {
 
   return (
     <main className="admin-page">
-
       <aside className="admin-sidebar">
-
         <div className="admin-logo">
-
           <span className="admin-logo-symbol">
             L
           </span>
@@ -249,11 +340,9 @@ function HorariosAdmin() {
             <strong>Clínica Lume</strong>
             <span>Administração</span>
           </div>
-
         </div>
 
         <nav className="admin-menu">
-
           <button
             type="button"
             className="admin-menu-item"
@@ -292,11 +381,9 @@ function HorariosAdmin() {
           >
             Horários
           </button>
-
         </nav>
 
         <div className="admin-sidebar-acoes">
-
           <button
             type="button"
             className="admin-voltar"
@@ -312,17 +399,12 @@ function HorariosAdmin() {
           >
             Sair
           </button>
-
         </div>
-
       </aside>
 
       <section className="admin-conteudo">
-
         <header className="admin-header">
-
           <div>
-
             <span className="admin-label">
               Administração
             </span>
@@ -333,15 +415,11 @@ function HorariosAdmin() {
               Gerencie a disponibilidade dos profissionais
               da Clínica Lume.
             </p>
-
           </div>
-
         </header>
 
         <section className="admin-filtros">
-
           <div className="admin-filtro-status">
-
             <label htmlFor="profissional-horario">
               Profissional
             </label>
@@ -355,30 +433,21 @@ function HorariosAdmin() {
                 )
               }
             >
-
               {profissionais.map((profissional) => (
-
                 <option
                   key={profissional.nome}
                   value={profissional.nome}
                 >
                   {profissional.nome}
                 </option>
-
               ))}
-
             </select>
-
           </div>
-
         </section>
 
         <section className="admin-agendamentos">
-
           <div className="admin-secao-titulo">
-
             <div>
-
               <h2>
                 {profissionalAtual?.nome}
               </h2>
@@ -386,22 +455,16 @@ function HorariosAdmin() {
               <p>
                 {profissionalAtual?.especialidade}
               </p>
-
             </div>
-
           </div>
 
           <div className="admin-horarios-conteudo">
-
             {diasSemana.map((dia) => (
-
               <div
                 className="admin-horario-dia"
                 key={dia}
               >
-
                 <div className="admin-horario-dia-titulo">
-
                   <h3>
                     {dia}
                   </h3>
@@ -410,14 +473,11 @@ function HorariosAdmin() {
                     {horariosSelecionados[dia]?.length || 0}{' '}
                     horários selecionados
                   </span>
-
                 </div>
 
                 <div className="admin-horarios-grid">
-
                   {horariosDisponiveis.map(
                     (horario) => {
-
                       const selecionado =
                         horarioEstaSelecionado(
                           dia,
@@ -445,11 +505,8 @@ function HorariosAdmin() {
                       )
                     }
                   )}
-
                 </div>
-
               </div>
-
             ))}
 
             <div
@@ -462,9 +519,7 @@ function HorariosAdmin() {
                 paddingTop: '24px',
               }}
             >
-
               <div>
-
                 <strong
                   style={{
                     display: 'block',
@@ -490,7 +545,6 @@ function HorariosAdmin() {
                     ✓ {mensagem}
                   </span>
                 )}
-
               </div>
 
               <button
@@ -504,15 +558,10 @@ function HorariosAdmin() {
               >
                 Salvar disponibilidade
               </button>
-
             </div>
-
           </div>
-
         </section>
-
       </section>
-
     </main>
   )
 }

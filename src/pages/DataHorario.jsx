@@ -2,6 +2,104 @@ import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './EstilosGerais.css'
 
+const disponibilidadePadrao = {
+  'Dra. Helena Martins': {
+    'Segunda-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Quarta-feira': ['08:00', '09:00', '10:00', '13:00', '14:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Sexta-feira': ['08:00', '09:00', '10:00', '11:00'],
+  },
+
+  'Dr. Rafael Almeida': {
+    'Segunda-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Quinta-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Sexta-feira': ['09:00', '10:00', '11:00', '13:00', '14:00'],
+  },
+
+  'Dr. Lucas Ferreira': {
+    'Segunda-feira': ['08:00', '09:00', '10:00', '14:00', '15:00'],
+    'Terça-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Quarta-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Quinta-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Sexta-feira': ['08:00', '09:00', '10:00', '11:00'],
+  },
+
+  'Dra. Marina Costa': {
+    'Segunda-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Sexta-feira': ['13:00', '14:00', '15:00', '16:00'],
+  },
+
+  'Dra. Laura Mendes': {
+    'Segunda-feira': ['09:00', '10:00', '11:00', '13:00', '14:00'],
+    'Terça-feira': ['09:00', '10:00', '11:00', '13:00', '14:00'],
+    'Quarta-feira': ['14:00', '15:00', '16:00', '17:00'],
+    'Quinta-feira': ['09:00', '10:00', '11:00', '13:00', '14:00'],
+    'Sexta-feira': ['09:00', '10:00', '11:00'],
+  },
+
+  'Dr. André Ribeiro': {
+    'Segunda-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Sexta-feira': ['13:00', '14:00', '15:00', '16:00'],
+  },
+
+  'Dra. Camila Nogueira': {
+    'Segunda-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Terça-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Quarta-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Quinta-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Sexta-feira': ['08:00', '09:00', '10:00', '11:00'],
+  },
+
+  'Dra. Beatriz Lima': {
+    'Segunda-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '11:00'],
+    'Sexta-feira': ['13:00', '14:00', '15:00'],
+  },
+
+  'Dra. Sofia Carvalho': {
+    'Segunda-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Quarta-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '13:00', '14:00', '15:00'],
+    'Sexta-feira': ['08:00', '09:00', '10:00', '11:00'],
+  },
+
+  'Dr. Gabriel Rocha': {
+    'Segunda-feira': ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+    'Quarta-feira': ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+    'Quinta-feira': ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+    'Sexta-feira': ['10:00', '11:00', '13:00', '14:00', '15:00'],
+  },
+
+  'Isabela Freitas': {
+    'Segunda-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Terça-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Quarta-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Quinta-feira': ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'],
+    'Sexta-feira': ['09:00', '10:00', '11:00', '14:00'],
+  },
+
+  'Daniel Moreira': {
+    'Segunda-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Terça-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Quarta-feira': ['13:00', '14:00', '15:00', '16:00', '17:00'],
+    'Quinta-feira': ['08:00', '09:00', '10:00', '11:00', '13:00'],
+    'Sexta-feira': ['13:00', '14:00', '15:00', '16:00'],
+  },
+}
+
 function criarDataAtual() {
   return new Date()
 }
@@ -26,9 +124,18 @@ function DataHorario() {
         localStorage.getItem('lumeDisponibilidade') || '{}'
       )
 
-      return disponibilidades[profissional] || {}
+      if (
+        Object.prototype.hasOwnProperty.call(
+          disponibilidades,
+          profissional
+        )
+      ) {
+        return disponibilidades[profissional]
+      }
+
+      return disponibilidadePadrao[profissional] || {}
     } catch {
-      return {}
+      return disponibilidadePadrao[profissional] || {}
     }
   }
 
@@ -217,7 +324,6 @@ function DataHorario() {
   return (
     <main className="agendamento-page">
       <section className="agendamento-container">
-
         <header className="agendamento-header">
           <span className="agendamento-etapa">
             Agendamento • Etapa 3 de 5
@@ -232,7 +338,6 @@ function DataHorario() {
         </header>
 
         <div className="agendamento-progresso">
-
           <span className="progresso-item ativo">
             Especialidade
           </span>
@@ -260,11 +365,9 @@ function DataHorario() {
           <span className="progresso-item">
             Confirmação
           </span>
-
         </div>
 
         <section className="consulta-resumo">
-
           <div>
             <span>Especialidade</span>
 
@@ -280,13 +383,10 @@ function DataHorario() {
               {profissional || 'Não informado'}
             </strong>
           </div>
-
         </section>
 
         <section className="data-horario-section">
-
           <div className="data-horario-titulo">
-
             <span className="data-horario-numero">
               1
             </span>
@@ -298,22 +398,16 @@ function DataHorario() {
                 Selecione um dos próximos dias disponíveis.
               </p>
             </div>
-
           </div>
 
           {datasDisponiveis.length === 0 ? (
-
             <p>
               Este profissional ainda não possui horários
               disponíveis para agendamento.
             </p>
-
           ) : (
-
             <div className="datas-grid">
-
               {datasDisponiveis.map((data) => (
-
                 <button
                   key={data.valor}
                   type="button"
@@ -326,7 +420,6 @@ function DataHorario() {
                     selecionarData(data.valor)
                   }
                 >
-
                   <span className="data-semana">
                     {data.diaSemana}
                   </span>
@@ -338,27 +431,19 @@ function DataHorario() {
                   <span className="data-mes">
                     {data.mes}
                   </span>
-
                 </button>
-
               ))}
-
             </div>
-
           )}
-
         </section>
 
         <section className="data-horario-section">
-
           <div className="data-horario-titulo">
-
             <span className="data-horario-numero">
               2
             </span>
 
             <div>
-
               <h2>Escolha um horário</h2>
 
               <p>
@@ -366,25 +451,18 @@ function DataHorario() {
                   ? 'Horários disponíveis para a data selecionada.'
                   : 'Escolha uma data para visualizar os horários.'}
               </p>
-
             </div>
-
           </div>
 
           {dataSelecionada &&
           horariosDaDataSelecionada.length === 0 ? (
-
             <p>
               Não há horários disponíveis para esta data.
             </p>
-
           ) : (
-
             <div className="horarios-grid">
-
               {horariosDaDataSelecionada.map(
                 (horario) => {
-
                   const ocupado =
                     horarioEstaOcupado(horario)
 
@@ -407,15 +485,11 @@ function DataHorario() {
                   )
                 }
               )}
-
             </div>
-
           )}
-
         </section>
 
         <div className="agendamento-acoes">
-
           <button
             className="voltar-button"
             type="button"
@@ -435,9 +509,7 @@ function DataHorario() {
           >
             Continuar →
           </button>
-
         </div>
-
       </section>
     </main>
   )
