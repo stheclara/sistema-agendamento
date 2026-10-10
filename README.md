@@ -13,7 +13,7 @@ O projeto foi desenvolvido com **React + Vite** com foco em organização, exper
 A aplicação está publicada na Vercel:
 
 **Clínica Lume:**  
-https://clinica-lume-five.vercel.app
+https://lume-saude.vercel.app
 
 ---
 
