@@ -2,19 +2,18 @@
 
 Sistema web de agendamento desenvolvido para uma clínica fictícia, com fluxo completo para pacientes e uma área administrativa para gerenciamento dos atendimentos.
 
-O projeto foi desenvolvido com **React + Vite** com foco em praticar desenvolvimento front-end, organização de componentes, navegação entre páginas, persistência de dados e criação de uma interface responsiva.
+O projeto foi desenvolvido com **React + Vite** com foco em organização, experiência do usuário, responsividade e simulação de funcionalidades presentes em um sistema real de agendamento.
 
-> **Clínica Lume é um projeto fictício desenvolvido para fins de estudo e portfólio.**
+> **Aviso:** A Clínica Lume é um projeto fictício desenvolvido exclusivamente para fins de estudo e portfólio.
 
 ---
 
-## Sobre o projeto
+## Acesse o projeto
 
-A Clínica Lume simula o funcionamento de um sistema de agendamento de consultas.
+A aplicação está publicada na Vercel:
 
-O paciente pode escolher uma especialidade, selecionar um profissional, definir uma data e horário disponível, informar seus dados e confirmar o agendamento.
-
-Além da área do paciente, o projeto possui uma **área administrativa**, permitindo visualizar e gerenciar informações da clínica.
+**Clínica Lume:**  
+https://clinica-lume-five.vercel.app
 
 ---
 
@@ -22,27 +21,111 @@ Além da área do paciente, o projeto possui uma **área administrativa**, permi
 
 ### Área do paciente
 
-- Escolha de especialidade
-- Escolha do profissional
-- Seleção de data e horário
-- Controle de horários disponíveis
-- Preenchimento e validação dos dados do paciente
-- Confirmação do agendamento
-- Visualização dos agendamentos realizados
-- Cancelamento de consultas
-- Liberação automática do horário após cancelamento
+O paciente pode:
 
-### Área administrativa
+- Escolher uma especialidade;
+- Escolher um profissional;
+- Visualizar as próximas datas disponíveis;
+- Visualizar os horários disponíveis para cada data;
+- Selecionar data e horário;
+- Preencher seus dados;
+- Revisar os dados antes da confirmação;
+- Confirmar o agendamento;
+- Consultar seus agendamentos;
+- Cancelar um agendamento.
 
-- Login demonstrativo para colaboradores
-- Dashboard com resumo dos agendamentos
-- Visualização dos agendamentos
-- Busca e filtros
-- Cancelamento de consultas
-- Finalização de atendimentos
-- Listagem de pacientes
-- Listagem de profissionais
-- Configuração dos horários disponíveis por profissional
+Quando um horário já possui um agendamento ativo, ele fica indisponível para novos agendamentos.
+
+Caso o agendamento seja cancelado, o horário volta a ficar disponível.
+
+---
+
+### Área do colaborador
+
+O sistema também possui uma área administrativa demonstrativa.
+
+Nela, o colaborador pode acessar:
+
+- Painel administrativo;
+- Agendamentos;
+- Pacientes;
+- Profissionais;
+- Horários.
+
+Também é possível:
+
+- Pesquisar agendamentos;
+- Visualizar o status das consultas;
+- Cancelar consultas;
+- Finalizar atendimentos;
+- Consultar pacientes;
+- Consultar os profissionais cadastrados;
+- Gerenciar a disponibilidade de cada profissional.
+
+---
+
+## Horários dos profissionais
+
+Os profissionais possuem **horários pré-programados**, permitindo que o sistema de agendamento possa ser testado imediatamente, sem a necessidade de configurar manualmente uma agenda antes do primeiro uso.
+
+> [!NOTE]
+> **Os horários podem ser alterados pela Área do Colaborador.**
+>
+> Acesse **Área do Colaborador → Horários**, escolha o profissional desejado e marque ou desmarque os horários disponíveis.
+>
+> Depois, clique em **Salvar disponibilidade**.
+>
+> A partir desse momento, a área de agendamento do paciente passa a considerar a disponibilidade definida pelo colaborador.
+
+As alterações realizadas na disponibilidade ficam armazenadas no navegador utilizado para a demonstração por meio do `localStorage`.
+
+---
+
+## Acesso demonstrativo à área administrativa
+
+Para testar a área do colaborador, utilize:
+
+```text
+E-mail: colaborador@clinicalume.com.br
+Senha: Lume123
+```
+
+> [!IMPORTANT]
+> A autenticação deste projeto é apenas demonstrativa.
+>
+> As credenciais estão definidas no front-end e o estado da autenticação utiliza `sessionStorage`.
+>
+> Em uma aplicação real, a autenticação deveria ser realizada no back-end, com armazenamento seguro de credenciais, controle de sessão e proteção adequada das rotas administrativas.
+
+---
+
+## Armazenamento dos dados
+
+Como este projeto não possui back-end ou banco de dados, alguns dados são armazenados diretamente no navegador.
+
+O projeto utiliza:
+
+- `localStorage` para agendamentos e disponibilidade dos profissionais;
+- `sessionStorage` para controlar a sessão da área administrativa.
+
+Por isso, os dados criados durante a demonstração pertencem ao navegador e ao domínio utilizados.
+
+Isso significa que os dados armazenados no ambiente local (`localhost`) são diferentes dos dados armazenados na versão publicada na Vercel.
+
+---
+
+## Especialidades
+
+A Clínica Lume possui profissionais fictícios nas seguintes especialidades:
+
+- Clínica Geral;
+- Cardiologia;
+- Dermatologia;
+- Ginecologia;
+- Pediatria;
+- Psicologia.
+
+Todos os nomes e informações utilizados no projeto são fictícios.
 
 ---
 
@@ -58,140 +141,150 @@ Além da área do paciente, o projeto possui uma **área administrativa**, permi
 - SessionStorage
 - Git
 - GitHub
+- Vercel
 
 ---
 
 ## Responsividade
 
-O sistema foi desenvolvido para funcionar em diferentes tamanhos de tela.
+A aplicação foi desenvolvida para funcionar em diferentes tamanhos de tela.
 
-A interface possui adaptações para dispositivos móveis, incluindo:
+Foram adaptados para dispositivos móveis:
 
-- navegação responsiva;
-- fluxo de agendamento adaptado para telas menores;
-- cards para visualização de agendamentos e pacientes;
-- painel administrativo responsivo;
-- formulários e seletores de horários adaptados para mobile.
+- Página inicial;
+- Menu de navegação;
+- Fluxo de agendamento;
+- Seleção de datas e horários;
+- Meus agendamentos;
+- Painel administrativo;
+- Lista de agendamentos;
+- Lista de pacientes;
+- Profissionais;
+- Gerenciamento de horários.
 
 ---
 
-## Área administrativa
+## Fluxo de agendamento
 
-O projeto possui uma área administrativa demonstrativa para simular o fluxo de acesso de colaboradores da clínica.
-
-A autenticação atual utiliza `sessionStorage` e credenciais fictícias definidas no front-end, sendo adequada apenas para fins de estudo e demonstração.
-
-Em uma aplicação real, a autenticação seria implementada no back-end, com armazenamento seguro de credenciais, controle de sessão e proteção das rotas administrativas.
-
-### Credenciais para demonstração
-
-**E-mail**
+O fluxo principal do paciente segue estas etapas:
 
 ```text
-colaborador@clinicalume.com.br
+Especialidade
+      ↓
+Profissional
+      ↓
+Data e horário
+      ↓
+Dados do paciente
+      ↓
+Confirmação
+      ↓
+Agendamento realizado
 ```
 
-**Senha**
-
-```text
-Lume123
-```
+Após a confirmação, o agendamento também pode ser consultado em **Meus agendamentos** e visualizado pela área administrativa.
 
 ---
 
-## Armazenamento dos dados
-
-Nesta versão, os dados são armazenados localmente no navegador utilizando `localStorage`.
-
-São armazenadas informações como:
-
-- agendamentos;
-- status das consultas;
-- disponibilidade de horários dos profissionais.
-
-Por isso, os dados são específicos do navegador e dispositivo utilizados.
-
----
-
-## Estrutura principal
+## Estrutura principal do projeto
 
 ```text
-src/
-├── assets/
-├── pages/
-│   ├── admin/
+src
+├── assets
+├── pages
+│   ├── admin
+│   │   ├── Admin.css
 │   │   ├── AgendamentosAdmin.jsx
 │   │   ├── HorariosAdmin.jsx
 │   │   ├── LoginAdmin.jsx
 │   │   ├── PacientesAdmin.jsx
 │   │   ├── PainelAdmin.jsx
 │   │   └── ProfissionaisAdmin.jsx
+│   │
 │   ├── Agendamento.jsx
 │   ├── Confirmacao.jsx
 │   ├── DadosPaciente.jsx
 │   ├── DataHorario.jsx
+│   ├── EstilosGerais.css
 │   ├── MeusAgendamentos.jsx
 │   ├── Profissional.jsx
 │   └── SucessoAgendamento.jsx
+│
+├── App.css
 ├── App.jsx
+├── index.css
 └── main.jsx
 ```
 
 ---
 
-## Executando o projeto localmente
+## Como executar o projeto localmente
 
-Clone o repositório:
+### 1. Clone o repositório
 
 ```bash
 git clone https://github.com/stheclara/sistema-agendamento.git
 ```
 
-Entre na pasta:
+### 2. Entre na pasta do projeto
 
 ```bash
 cd sistema-agendamento
 ```
 
-Instale as dependências:
+### 3. Instale as dependências
 
 ```bash
 npm install
 ```
 
-Inicie o projeto:
+### 4. Inicie o projeto
 
 ```bash
 npm run dev
 ```
 
-Depois, abra no navegador o endereço informado pelo Vite.
+O Vite exibirá no terminal o endereço local da aplicação, normalmente:
 
----
-
-## Deploy
-
-O projeto será publicado na **Vercel**.
-
-O link da aplicação será adicionado aqui após a publicação.
+```text
+http://localhost:5173
+```
 
 ---
 
 ## Objetivo do projeto
 
-Este projeto foi criado para colocar em prática conhecimentos de desenvolvimento front-end e simular uma aplicação com um fluxo mais próximo de um sistema real.
+Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimentos em desenvolvimento front-end, especialmente:
 
-Durante o desenvolvimento foram trabalhados conceitos como:
+- Desenvolvimento de interfaces com React;
+- Componentização;
+- Navegação entre páginas com React Router;
+- Manipulação de estados;
+- Persistência de dados no navegador;
+- Validação de formulários;
+- Construção de fluxos de usuário;
+- Desenvolvimento responsivo;
+- Organização de uma aplicação React;
+- Versionamento com Git e GitHub;
+- Deploy de aplicações com Vercel.
 
-- criação de interfaces com React;
-- roteamento entre páginas;
-- manipulação e validação de formulários;
-- persistência de dados no navegador;
-- controle de disponibilidade de horários;
-- gerenciamento de estados de agendamentos;
-- criação de área administrativa;
-- responsividade;
-- organização e manutenção do código.
+O projeto simula uma aplicação de agendamento, mas não utiliza dados reais de pacientes ou profissionais.
+
+---
+
+## Possíveis evoluções
+
+Como evolução futura, o sistema poderia receber:
+
+- Back-end próprio;
+- Banco de dados;
+- Autenticação segura;
+- Cadastro real de usuários;
+- Diferentes níveis de acesso;
+- Persistência dos agendamentos entre diferentes dispositivos;
+- Integração com e-mail;
+- Confirmações e lembretes de consultas;
+- Gerenciamento mais avançado da agenda dos profissionais.
 
 ---
 
@@ -199,6 +292,8 @@ Durante o desenvolvimento foram trabalhados conceitos como:
 
 **Sthefanie Teixeira**
 
-GitHub: [@stheclara](https://github.com/stheclara)
+GitHub:  
+https://github.com/stheclara
 
-LinkedIn: [Sthefanie Teixeira](https://www.linkedin.com/in/sthefanie-teixeira/)
+LinkedIn:  
+https://www.linkedin.com/in/sthefanie-teixeira/
